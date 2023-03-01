@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Double Image Hover Effects | Codrops</title>
+		<meta name="description" content="Some hover effects that use clip-path animations for revealing the same image again, with fancy effects." />
+		<meta name="keywords" content="gsap, clip-path, animation, hover effect" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://use.typekit.net/xgl3olk.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		<script src="//tympanus.net/codrops/adpacks/analytics.js"></script>
+	</head>
+	<body class="loading">
+		<main>
+			<div class="intro">
+				<div class="frame">
+					<div class="frame__title">
+						<a aria-label="Back to the article" class="frame__title-back" href="https://tympanus.net/codrops/?p=70713">
+							<span>Back to the article</span>
+							<svg width="18px" height="18px" viewBox="0 0 24 24">
+								<path vector-effect="non-scaling-stroke" d="M18.25 15.5a.75.75 0 00.75-.75v-9a.75.75 0 00-.75-.75h-9a.75.75 0 000 1.5h7.19L6.22 16.72a.75.75 0 101.06 1.06L17.5 7.56v7.19c0 .414.336.75.75.75z"></path>
+							</svg>
+						</a>
+					</div>
+					<a class="frame__prev" href="https://tympanus.net/Development/CameraFlyThrough/">Previous demo</a>
+				</div>
+				<h1 class="intro__title">Double Image Hover Effects</h1>
+				<span class="intro__info">Scroll & hover</span>
+			</div>
+			<div class="content">
+				<h2 class="content__title">I</h2>
+				<div class="double" style="background-image:url(img/4.jpg)" data-effect="1"></div>
+			</div>
+			<div class="content">
+				<h2 class="content__title">II</h2>
+				<div class="double" style="background-image:url(img/2.jpg)" data-effect="2"></div>
+			</div>
+			<div class="content">
+				<h2 class="content__title">III</h2>
+				<div class="double" style="background-image:url(img/3.jpg)" data-effect="3"></div>
+			</div>
+			<div class="content">
+				<h2 class="content__title">IV</h2>
+				<div class="double" style="background-image:url(img/5.jpg)" data-effect="4"></div>
+			</div>
+			<div class="content">
+				<h2 class="content__title">V</h2>
+				<div class="double" style="background-image:url(img/6.jpg)" data-effect="5"></div>
+			</div>
+			<div class="content">
+				<h2 class="content__title">VI</h2>
+				<div class="double" style="background-image:url(img/1.jpg)" data-effect="6"></div>
+			</div>
+			<div class="content">
+				<h2 class="content__title">VII</h2>
+				<div class="double" style="background-image:url(img/9.jpg)" data-effect="7"></div>
+			</div>
+			<div class="content">
+				<h2 class="content__title">VIII</h2>
+				<div class="double" style="background-image:url(img/8.jpg)" data-effect="8"></div>
+			</div>
+			<div class="content">
+				<h2 class="content__title">IX</h2>
+				<div class="double" style="background-image:url(img/7.jpg)" data-effect="9"></div>
+			</div>
+			<div class="content">
+				<h2 class="content__title">X</h2>
+				<div class="double" style="background-image:url(img/10.jpg)" data-effect="10"></div>
+			</div>
+			<div class="content">
+				<h2 class="content__title">XI</h2>
+				<div class="double" style="background-image:url(img/12.jpg)" data-effect="11"></div>
+			</div>
+			<!-- SVG Filter effect -->
+			<p class="credit">Images generated with Midjourney.</p>
+		</main>
+		<script src="https://tympanus.net/codrops/adpacks/cda_sponsor.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
+		<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+		<script type="module" src="./js/index.js"></script>
+	</body>
+</html>

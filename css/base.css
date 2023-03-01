@@ -1,0 +1,267 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 16px;
+	--color-text: #ada9a5;
+	--color-title: #ada9a5;
+	--color-bg: #111;
+	--color-link: #9d7a4c;
+	--color-link-hover: #fff;
+	--page-padding: 1.5rem 2rem;
+}
+
+body {
+	margin: 0;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-family: "sigurd-variable", sans-serif;
+	font-variation-settings: "slnt" 0, "wght" 300;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-transform: uppercase;
+}
+
+/* Page Loader */
+.js .loading::before,
+.js .loading::after {
+	content: '';
+	position: fixed;
+	z-index: 1000;
+}
+
+.js .loading::before {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-bg);
+}
+
+.js .loading::after {
+	top: 50%;
+	left: 50%;
+	width: 60px;
+	height: 60px;
+	margin: -30px 0 0 -30px;
+	border-radius: 50%;
+	opacity: 0.4;
+	background: var(--color-link);
+	animation: loaderAnim 0.7s linear infinite alternate forwards;
+
+}
+
+@keyframes loaderAnim {
+	to {
+		opacity: 1;
+		transform: scale3d(0.5,0.5,1);
+	}
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	outline: none;
+	cursor: pointer;
+}
+
+a:hover {
+	color: var(--color-link-hover);
+	outline: none;
+}
+
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+	/* Provide a fallback style for browsers
+	 that don't support :focus-visible */
+	outline: none;
+	background: lightgrey;
+}
+
+a:focus:not(:focus-visible) {
+	/* Remove the focus indicator on mouse-focus for browsers
+	 that do support :focus-visible */
+	background: transparent;
+}
+
+a:focus-visible {
+	/* Draw a very noticeable focus style for
+	 keyboard-focus on browsers that do support
+	 :focus-visible */
+	outline: 2px solid red;
+	background: transparent;
+}
+
+.unbutton {
+	background: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font: inherit;
+	cursor: pointer;
+}
+
+.unbutton:focus {
+	outline: none;
+}
+
+main {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	counter-reset: section;
+}
+
+.intro {
+	height: 100vh;
+	display: grid;
+	padding: var(--page-padding);
+	margin-bottom: 50vh;
+	align-content: space-between;
+}
+
+.frame {
+	color: var(--color-title);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto auto auto;
+	grid-template-areas: 'title' 'prev' 'demos' 'sponsor';
+	justify-content: start;
+	margin-bottom: 3rem;
+	grid-gap: 0.5rem;
+	align-items: start;
+	justify-items: start;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.frame a:not(.frame__title-back),
+.line {
+	white-space: nowrap;
+	overflow: hidden;
+	position: relative;
+}
+
+.frame a:not(.frame__title-back)::before,
+.line::before {
+	content: '';
+	height: 1px;
+	width: 100%;
+	background: currentColor;
+	position: absolute;
+	top: 90%;
+	transition: transform 0.3s;
+	transform-origin: 0% 50%;
+}
+
+.frame a:not(.frame__title-back):hover::before,
+.line:hover::before {
+	transform: scaleX(0);
+	transform-origin: 100% 50%;
+}
+
+.frame__title {
+	grid-area: title;
+	display: flex;
+	align-items: center;
+}
+
+.frame__title-main {
+	font-size: 1rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.frame__title-back {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.frame__title-back svg {
+	fill: currentColor;
+}
+
+.frame__prev {
+	grid-area: prev;
+}
+
+.frame__demos {
+	display: flex;
+	gap: 1rem;
+}
+
+.frame__demos span {
+	opacity: 0.7;
+}
+
+.intro__title {
+	margin: 0;
+	line-height: 0.9;
+	text-transform: uppercase;
+	font-weight: 300;
+	font-size: clamp(2rem,10vw,9rem);
+}
+
+.intro__info {
+	position: relative;
+	align-self: end;
+}
+
+.content {
+	flex: 1;
+	display: grid;
+	align-items: center;
+	grid-template-columns: auto minmax(50%,600px);
+	margin-bottom: 10vh;
+}
+
+.content__title {
+	position: relative;
+	font-size: 1.85rem;
+	margin: 0;
+	line-height: 1;
+	padding: var(--page-padding);
+	font-weight: 300;
+	color: var(--color-title);
+}
+
+.double {
+	display: grid;
+	aspect-ratio: 4 / 2.5;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	counter-increment: section;
+	
+}
+
+.double__img {
+	grid-area: 1 / 1 / -1 / -1;
+	background: url(../img/1.jpg) no-repeat 50% 50%;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.credit {
+	padding: var(--page-padding);
+	text-align: center;
+}
+
+@media screen and (min-width: 53em) {
+	.frame {
+		grid-gap: 2rem;
+		grid-template-columns: auto auto 1fr auto;
+		grid-template-rows: auto;
+		align-items: center;
+		grid-template-areas: 'title prev demos sponsor';
+	}
+	.frame__demos {
+		justify-self: end;
+	}
+}
