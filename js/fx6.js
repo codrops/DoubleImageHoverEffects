@@ -26,20 +26,10 @@ export class Fx6 {
         gsap.set(this.DOM.el, {backgroundImage: 'none'});
 
         const iterations = 2;
-        let innerHTML = '';
-        for (let i = 0; i < iterations; ++i) {
-            innerHTML += `<div class="double__img" style="background-image:url(${url})"></div>`;
-        }
-        this.DOM.el.innerHTML = innerHTML;
+        this.DOM.el.innerHTML = Array.from({ length: iterations }, () => `<div class="double__img" style="background-image:url(${url})"></div>`).join('');
 
         this.DOM.bottom = this.DOM.el.querySelector('.double__img:first-child');
         this.DOM.top = this.DOM.el.querySelector('.double__img:last-child');
-        
-        /*
-        gsap.set(this.DOM.bottom, {
-            scale: 1.4
-        });
-        */
     }
     mouseenter() {
 
@@ -92,6 +82,7 @@ export class Fx6 {
             filter: 'brightness(0%) contrast(400%)',
             scale: 3.3
         }, 0)
+        .set([this.DOM.bottom, this.DOM.top], {willChange: 'auto'})
 
     }
 }

@@ -2,8 +2,7 @@
 export class Fx10 {
     DOM = {
         el: null,
-        bottom: null,
-        top: null
+        images: null
     }
     constructor(DOM_el) {
         this.DOM.el = DOM_el;
@@ -26,11 +25,7 @@ export class Fx10 {
         gsap.set(this.DOM.el, {backgroundImage: 'none'});
 
         const iterations = 5;
-        let innerHTML = '';
-        for (let i = 0; i < iterations; ++i) {
-            innerHTML += `<div class="double__img" style="background-image:url(${url})"></div>`;
-        }
-        this.DOM.el.innerHTML = innerHTML;
+        this.DOM.el.innerHTML = Array.from({ length: iterations }, () => `<div class="double__img" style="background-image:url(${url})"></div>`).join('');
         this.DOM.images = [...this.DOM.el.querySelectorAll('.double__img')];
 
         gsap.set(this.DOM.images[0], {
@@ -100,6 +95,7 @@ export class Fx10 {
         .to(this.DOM.images[4], {
             clipPath: 'polygon(0% 0%, 50% 0%, 50% 50%, 0% 50%)',
         }, 0.4)
+        .set(this.DOM.images, {willChange: 'auto'})
 
     }
 }

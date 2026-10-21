@@ -26,11 +26,7 @@ export class Fx8 {
         gsap.set(this.DOM.el, {backgroundImage: 'none'});
 
         const iterations = 3;
-        let innerHTML = '';
-        for (let i = 0; i < iterations; ++i) {
-            innerHTML += `<div class="double__img" style="background-image:url(${url})"></div>`;
-        }
-        this.DOM.el.innerHTML = innerHTML;
+        this.DOM.el.innerHTML = Array.from({ length: iterations }, () => `<div class="double__img" style="background-image:url(${url})"></div>`).join('');
 
         this.DOM.bottom = this.DOM.el.querySelector('.double__img:first-child');
         this.DOM.middle = this.DOM.el.querySelector('.double__img:nth-child(2)');
@@ -112,6 +108,7 @@ export class Fx8 {
         .to(this.DOM.top, {
             clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
         }, `start+=${DURATION/2}`)
+        .set([this.DOM.bottom, this.DOM.middle, this.DOM.top], {willChange: 'auto'})
 
     }
 }

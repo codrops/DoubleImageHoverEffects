@@ -24,11 +24,7 @@ export class Fx4 {
         gsap.set(this.DOM.el, {backgroundImage: 'none'});
 
         const iterations = 3;
-        let innerHTML = '';
-        for (let i = 0; i < iterations; ++i) {
-            innerHTML += `<div class="double__img" style="background-image:url(${url})"></div>`;
-        }
-        this.DOM.el.innerHTML = innerHTML;
+        this.DOM.el.innerHTML = Array.from({ length: iterations }, () => `<div class="double__img" style="background-image:url(${url})"></div>`).join('');
 
         this.DOM.bottom = this.DOM.el.querySelector('.double__img:first-child');
         this.DOM.middle = this.DOM.el.querySelector('.double__img:nth-child(2)');
@@ -103,6 +99,7 @@ export class Fx4 {
         .to(this.DOM.top, {
             clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
         }, 0)
+        .set([this.DOM.top, this.DOM.middle], {willChange: 'auto'})
 
     }
 }

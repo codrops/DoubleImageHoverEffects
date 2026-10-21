@@ -26,11 +26,7 @@ export class Fx9 {
         gsap.set(this.DOM.el, {backgroundImage: 'none'});
 
         const iterations = 2;
-        let innerHTML = '';
-        for (let i = 0; i < iterations; ++i) {
-            innerHTML += `<div class="double__img" style="background-image:url(${url})"></div>`;
-        }
-        this.DOM.el.innerHTML = innerHTML;
+        this.DOM.el.innerHTML = Array.from({ length: iterations }, () => `<div class="double__img" style="background-image:url(${url})"></div>`).join('');
 
         this.DOM.bottom = this.DOM.el.querySelector('.double__img:first-child');
         this.DOM.top = this.DOM.el.querySelector('.double__img:last-child');
@@ -61,7 +57,6 @@ export class Fx9 {
             filter: 'brightness(600%)',
         }, {
             skewX: 0,
-            scale: 1,
             filter: 'brightness(100%)',
             scale: 1.1,
         }, 0)
@@ -92,6 +87,7 @@ export class Fx9 {
                 filter: 'brightness(0%)',
             })
         }, 0)
+        .set(this.DOM.top, {willChange: 'auto'})
 
     }
 }
